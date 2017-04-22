@@ -31,3 +31,30 @@ end
 get '/messages/new' do
  erb :form
 end
+
+post '/messages' do
+	message_text = params[:message]
+	message = Message.new(text: message_text)
+	message.save!
+	if message.save!
+		redirect '/messages'
+		"Message saved"
+	else
+		"An error occured"
+	end
+end
+
+get '/messages' do
+  @messages = Message.all
+  erb :index
+end
+
+get '/messages/:id' do
+	@message = Message.get(params[:id])
+	erb :show
+end
+ 
+
+
+
+

@@ -1,0 +1,5 @@
+<p>These are all the messages (<%= @messages.count %>): </p>
+
+<% @messages.each do |message| %>
+	<p> Message <%= message.id %>, Text: <%= message.text %></p>
+<% end %>
