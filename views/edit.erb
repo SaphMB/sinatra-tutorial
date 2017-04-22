@@ -1,0 +1,7 @@
+<h1>Editing Message <%= @message.id %></h1>
+
+<form action="/messages/<%= @message.id %>" method="post">
+  <input name="_method" type="hidden" value="put" />
+  Edit the message: <input type="text" name="message" value="<%= @message.text %>">
+  <input type="submit">
+</form>

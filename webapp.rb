@@ -55,6 +55,19 @@ get '/messages/:id' do
 end
  
 
+get '/messages/:id/edit' do
+	@message = Message.get(params[:id])
+	erb :edit
+end
 
+put '/messages/:id' do
+	message = Message.get(params[:id])
+	message.text = params[:message]
+	if message.save!
+		redirect '/messages'
+	else
+		'An error occurred'
+	end
+end
 
 
