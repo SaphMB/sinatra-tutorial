@@ -1,5 +1,9 @@
 <p>These are all the messages (<%= @messages.count %>): </p>
 
 <% @messages.each do |message| %>
-	<p> Message <%= message.id %>, Text: <%= message.text %></p>
+	<form action="/messages/<%= message.id %>" method="post">
+		Message <%= message.id %>, Text: <%= message.text %>
+		<input type="hidden" name="_method" value="delete"/>
+		<input type="submit" value="Delete">
+	</form>
 <% end %>

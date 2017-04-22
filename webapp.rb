@@ -40,7 +40,7 @@ post '/messages' do
 		redirect '/messages'
 		"Message saved"
 	else
-		"An error occured"
+		"An error occurred"
 	end
 end
 
@@ -70,4 +70,11 @@ put '/messages/:id' do
 	end
 end
 
-
+delete '/messages/:id' do
+	message = Message.get(params[:id])
+	if message.destroy!
+		redirect '/messages'
+	else
+		'An error occurred'
+	end
+end
