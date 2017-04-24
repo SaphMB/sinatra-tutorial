@@ -13,7 +13,7 @@ DataMapper.finalize
 Message.auto_upgrade!
 
 get '/' do
- 'Hello, World!'
+	'Hello, World!'
 end
 
 get '/hello/:name' do
